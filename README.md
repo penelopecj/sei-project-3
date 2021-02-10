@@ -9,7 +9,7 @@ A group project for General Assembly’s Software Engineering Immersive course, 
 
 * Penny Jungreis - https://github.com/penelopecj
 
-![homepage](./client/src/images/homepage.png)
+![homepage](./client/src/images/homepage.gif)
 
 <Make the above into a video of the animations>
 
