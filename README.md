@@ -60,9 +60,11 @@ In an alternate reality, thousands of people attended events across the world in
 
 ## User Stories & Wireframes
 **Backend Wireframe**
+
 ![backend wireframe](./client/src/images/backend-wireframe.png)
 
 **Frontend Wireframe**
+
 ![frontend wireframe](./client/src/images/frontend-wireframe.png)
 
 ## General Approach & Planning
