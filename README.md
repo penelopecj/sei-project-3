@@ -80,6 +80,7 @@ In an alternate reality, thousands of people attended events across the world in
 * We made all major decisions about site styling, colours, and Google Fonts together.
 * We worked together across the site to add error handling and error messages for the UI.
 
+**Controllers for RESTful routes:**
 ```
 async function eventIndex(_req, res, next) {
   try {
@@ -146,6 +147,37 @@ async function eventDelete(req, res, next) {
 * I focussed on the Index pages, including the location filter selector and responsive design.
 
 ![venues index filters](./client/src/images/boston-venues.png)
+```
+let cities = []
+
+venues.map(venue => {
+  cities.push(venue.city)
+})
+
+function removeDuplicates(data) {
+  const unique = []
+  data.forEach(element => {
+    if (!unique.includes(element)) {
+      unique.push(element)
+    }
+  })
+  return unique
+}
+
+cities = removeDuplicates(cities)
+
+const filteredCities = []
+cities.map(city => {
+  filteredCities.push({ value: city, label: city })
+})
+
+const handleSelectCity = (e) => {
+  const results = venues.filter(venue => {
+    return venue.city === e.value
+  })
+  setVenues(results)
+}
+```
 
 * I worked on the Show pages, including the display of events at each venue.
 
