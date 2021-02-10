@@ -9,7 +9,7 @@ A group project for General Assembly’s Software Engineering Immersive course, 
 
 * Penny Jungreis - https://github.com/penelopecj
 
-![homepage](./images/E321495B-3514-49BE-97E4-10CF02C15339-2726-0001F8A9C6FB4F33/Screenshot 2021-01-21 at 23.09.46.png)
+![homepage](./client/src/images/homepage.png)
 
 <Make the above into a video of the animations>
 
@@ -57,9 +57,14 @@ In an alternate reality, thousands of people attended events across the world in
 2. Use `yarn` to install all dependencies from the `package.json` file.
 
 ## User Stories & Wireframes
+**Backend Wireframe**
+![backend wireframe](./client/src/images/backend-wireframe.png)
+
+**Frontend Wireframe**
+![frontend wireframe](./client/src/images/frontend-wireframe.png)
 
 ## General Approach & Planning
-
+![trello board](./client/src/images/trello.png)
 ## Wins
 
 ## Challenges
