@@ -11,8 +11,6 @@ A group project for General Assembly’s Software Engineering Immersive course, 
 
 ![homepage](./client/src/images/homepage.gif)
 
-<Make the above into a video of the animations>
-
 ## Deployment
 This website has been deployed on Heroku and is available _here._ Please feel free to register your own account, or you can use mine `penny@email.com` and password `pass`.
 
