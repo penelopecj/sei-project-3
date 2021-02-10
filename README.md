@@ -1,6 +1,6 @@
 # 🎉 2020 Reimagined - A Fullstack MERN App
 
-A group project for General Assembly’s Software Engineering Immersive course, built using React, Express, Mongo, and Node.
+A one-week group project for General Assembly’s Software Engineering Immersive course, built using React, Express, Mongo, and Node.
 
 ### Developed by:
 * Aislin Bamber - https://github.com/aislinb
@@ -20,7 +20,7 @@ This website has been deployed on Heroku and is available _here._ Please feel fr
 In an alternate reality, thousands of people attended events across the world in 2020 living their best lives. Users can let us know what their 2020 selves thought as they partied, celebrated, and travelled to these incredible events.
 
 ## Project Brief
-* Build our most advanced project to date with achievable scope and a focus on creating a professional finished product.
+* One week to plan, build, and test our most advanced project to date with achievable scope and a focus on creating a professional finished product.
 * Make it a full-stack application by making our own backend and frontend.
 * Use an Express API to serve our data from a Mongo database.
 * Consume our API with a separate frontend built with React.
