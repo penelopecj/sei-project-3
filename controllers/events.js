@@ -7,7 +7,6 @@ async function eventIndex(_req, res, next) {
       .populate('venue')
       .populate('owner')
       .populate('comments.owner')
-    //.populate('venue')
     return res.status(200).json(events)
   } catch (err) {
     next(err)

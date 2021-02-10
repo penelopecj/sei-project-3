@@ -80,12 +80,101 @@ In an alternate reality, thousands of people attended events across the world in
 * We made all major decisions about site styling, colours, and Google Fonts together.
 * We worked together across the site to add error handling and error messages for the UI.
 
+```
+async function eventIndex(_req, res, next) {
+  try {
+    const events = await Event.find()
+      .populate('venue')
+      .populate('owner')
+      .populate('comments.owner')
+    return res.status(200).json(events)
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function eventCreate(req, res, next) {
+  try {
+    const newEventData = { ...req.body, owner: req.currentUser._id }
+    const newEvent = await Event.create(newEventData)
+    return res.status(201).json(newEvent)
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function eventShow(req, res, next) {
+  const { id } = req.params
+  try {
+    const event = await Event.findById(id).populate('venue').populate('owner').populate('comments.owner')
+    if (!event) throw new Error(notFound)
+    return res.status(200).json(event)
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function eventUpdate(req, res, next) {
+  const { id } = req.params
+  try {
+    const eventToEdit = await Event.findById(id)
+    if (!eventToEdit) throw new Error(notFound)
+    if (!eventToEdit.owner.equals(req.currentUser._id)) throw new Error(forbidden)
+    Object.assign(eventToEdit, req.body)
+    await eventToEdit.save()
+    return res.status(202).json(eventToEdit)
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function eventDelete(req, res, next) {
+  const { id } = req.params
+  try {
+    const eventToDelete = await Event.findById(id)
+    if (!eventToDelete) throw new Error(notFound)
+    if (!eventToDelete.owner.equals(req.currentUser._id)) throw new Error(forbidden)
+    await eventToDelete.remove()
+    return res.sendStatus(204)
+  } catch (err) {
+    next(err)
+  }
+}
+```
+
 ### My Work
 * I focussed on the Index pages, including the location filter selector and responsive design.
+
+![venues index filters](./client/src/images/boston-venues.png)
+
 * I worked on the Show pages, including the display of events at each venue.
+
+![Wembley show page](./client/src/images/wembley.png)
+
 * I handled the JavaScript date manipulation on all events and reviews.
+```
+const jsDate = new Date(date)
+const day = jsDate.getDate()
+let month = jsDate.getMonth()
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+month = months[month]
+const year = jsDate.getFullYear()
+```
+
+![Burning Man show page](./client/src/images/burning-man.png)
+
 * The reviews and average rating frontend, complete with date stamp and profile photo.
+```
+const stars = []
+for (let i = 0; i < event.avgRating; i++) {
+  stars.push('★')
+}
+```
+
 * I worked on the nav bar, with responsive-sizing, re-load on login and logout, subtle hovers, and logo.
+
+![nav bar with profile](./client/src/images/nav-bar-2.png)
+
 * I worked on the event, venue, and review 'delete' features.
 * I built the Edit form on venues and events.
 * I created the static footer.
@@ -94,23 +183,70 @@ In an alternate reality, thousands of people attended events across the world in
 ### My Teammates' Work
 * The map view page, which shows the exact latitude and longitude of each event using Mapbox.
 * Popups on each venue on the map displaying the events at that venue.
+
+![venues map](./client/src/images/map-view.png)
+
 * The Profile page and edit form.
 * The profile photo upload feature.
 * The login and registration forms.
 * The awesome photo slider and text animations on the homepage.
 * The highest-rated events (frontend).
 * The average rating calculator (backend).
+```
+eventSchema.virtual('avgRating').get(function() {
+  if (!this.comments.length) return 'Not rated yet'
+  const avg = this.comments.reduce((sum, curr) => {
+    return sum + curr.rating
+  }, 0)
+  return Math.round(avg / this.comments.length)
+})
+```
+
 ## Wins
 * The stylish star-rating bar on the review forms.
+
+![review form](./client/src/images/star-rating.png)
+
 * Cohesive and professional styling across the whole site.
 * Eye-catching homepage with animations.
 * Learnt to use *react-select* to filter by continent, country, and city.
 * When the user adds a new venue and event at that venue, it will display on the map view as well.
 * Collaboration - this was the dream team and we got so much more done together than I could have done by myself.
 
+![footer](./client/src/images/footer.png)
+
 ## Challenges
 * Learning to use group Git for the first time and handling merge conflicts.
 * Handling user authentication to ensure that only the creator of an event or review would be allowed to edit or delete it.
+```
+import jwt from 'jsonwebtoken'
+import { secret } from '../config/environment.js'
+import User from '../models/user.js'
+
+export default async function secureRoute(req, res, next) {
+  try {
+    if (!req.headers.authorization) {
+      throw new Error('Missing Required Header') 
+    } //no authorization key 
+
+    const token = req.headers.authorization.replace('Bearer ', '') // attempt made to get token 
+    const payload = jwt.verify(token, secret) // verifying token. id will be here on key of sub
+    const userToVerify = await User.findById(payload.sub) // finding the user attributed to token 
+
+    if (!userToVerify) {
+      throw new Error('User not Found')
+    }
+
+    req.currentUser = userToVerify // currentUser is made up but this is the user found on the token. 
+
+    next()
+
+  } catch (err) {
+    console.log('🤖 Authorization Error', err.name, err.message)
+    return res.status(401).json({ message: 'Unauthorized' })
+  }
+}
+```
 
 ## Unsolved Problems
 * The default values do not clear from the filter selectors on the Index pages.
@@ -124,3 +260,6 @@ In an alternate reality, thousands of people attended events across the world in
 * Nav bar hamburger menu for a mobile phone screen.
 * Auto-calculate and input the latitude and longitude when user creates a new venue.
 * Search bar for writing in venue or event name.
+* Search events by month.
+
+✨ ***PRs welcome!*** ✨
