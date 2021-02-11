@@ -12,7 +12,7 @@ A one-week group project for General Assembly’s Software Engineering Immersive
 ![homepage](./client/src/images/homepage.gif)
 
 ## Deployment
-This website has been deployed on Heroku and is available _here._ Please feel free to register your own account, or you can use mine `penny@email` and password `pass`.
+This website has been deployed on Heroku and is available [_here_](https://reimagined2020.herokuapp.com/). Please feel free to register your own account, or you can use mine `penny@email` and password `pass`.
 
 ## Concept
 2020 Reimagined is a site where users can browse the awesome events that happened in 2020 in an imaginary world where there was never a pandemic.
