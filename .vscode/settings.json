@@ -7,5 +7,6 @@
     "titleBar.inactiveForeground": "#FFF",
     "titleBar.activeForeground": "#FFF",
   },
-  "window.title": "🎉 2020 Reimagined 🎉"
+  "window.title": "🎉 2020 Reimagined 🎉",
+  "git.ignoreLimitWarning": true
 }
