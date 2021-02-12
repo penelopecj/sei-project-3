@@ -12,10 +12,12 @@ A one-week group project for General Assembly’s Software Engineering Immersive
 ![homepage](./client/src/images/homepage.gif)
 
 ## Deployment
-This website has been deployed on Heroku and is available [_here_](https://reimagined2020.herokuapp.com/). Please feel free to register your own account, or you can use mine `penny@email` and password `pass`.
+I deployed this website using Heroku and it is available at [reimagined2020.herokuapp.com](https://reimagined2020.herokuapp.com/). The free servers on Heroku sleep when they are not it use, so please allow a minute or two for them to wake up! 😴
+
+Feel free to register your own account, or you can use mine `penny@email` and password `pass`.
 
 ## Concept
-2020 Reimagined is a site where users can browse the awesome events that happened in 2020 in an imaginary world where there was never a pandemic.
+**2020 Reimagined** is a site where users can browse the awesome events that happened in 2020 in an imaginary world where there was never a pandemic.
 
 In an alternate reality, thousands of people attended events across the world in 2020 living their best lives. Users can let us know what their 2020 selves thought as they partied, celebrated, and travelled to these incredible events.
 
@@ -29,16 +31,16 @@ In an alternate reality, thousands of people attended events across the world in
 * Have a visually impressive design.
 
 ## Technologies Used
-* Backend:
+* **Backend**:
   * MongoDB
   * Node.js
   * Express
-* Frontend:
+* **Frontend**:
   * JavaScript (ES6)
   * React.js
   * HTML5
   * CSS3 + SASS
-* Dependencies:
+* **Dependencies**:
   * Axios
   * react-router-dom
   * react-select
@@ -47,7 +49,7 @@ In an alternate reality, thousands of people attended events across the world in
   * JSONWebToken
   * bcrypt
   * mongoose-unique-validator
-* Development Tools:
+* **Development Tools**:
   * VS Code
   * Git + GitHub
   * Insomnia
@@ -71,7 +73,6 @@ In an alternate reality, thousands of people attended events across the world in
 
 ![trello board](./client/src/images/trello.png)
 
-### Group Work
 * The three of us worked together to plan out our Minimum Viable Poduct using Trello.
 * We divided up the tasks needed to set up the backend and took turns writing seed data to populate the site.
 * We used Trello, Slack, Zoom, and GitHub to communicate who was responsible for what and when things had been completed. Good communication was essential for this project so we would not overwrite any changes from another group member and could handle git branch conflicts easily when they arose.
@@ -80,7 +81,7 @@ In an alternate reality, thousands of people attended events across the world in
 * We made all major decisions about site styling, colours, and Google Fonts together.
 * We worked together across the site to add error handling and error messages for the UI.
 
-**Controllers for RESTful routes:**
+**Controllers for RESTful routes**
 ```
 async function eventIndex(_req, res, next) {
   try {
@@ -143,10 +144,12 @@ async function eventDelete(req, res, next) {
 }
 ```
 
-### My Work
 * I focussed on the Index pages, including the location filter selector and responsive design.
 
 ![venues index filters](./client/src/images/boston-venues.png)
+
+**Location Filter**
+
 ```
 let cities = []
 
@@ -211,8 +214,10 @@ for (let i = 0; i < event.avgRating; i++) {
 * I built the Edit form on venues and events.
 * I created the static footer.
 * I chose the brand purple colour for site and VS Code.
+## Wins
+* The stylish star-rating bar on the review forms.
 
-### My Teammates' Work
+![review form](./client/src/images/star-rating.png)
 * The map view page, which shows the exact latitude and longitude of each event using Mapbox.
 * Popups on each venue on the map displaying the events at that venue.
 
@@ -221,7 +226,7 @@ for (let i = 0; i < event.avgRating; i++) {
 * The Profile page and edit form.
 * The profile photo upload feature.
 * The login and registration forms.
-* The awesome photo slider and text animations on the homepage.
+* The eye-catchin photo slider and text animations on the homepage.
 * The highest-rated events (frontend).
 * The average rating calculator (backend).
 ```
@@ -233,22 +238,8 @@ eventSchema.virtual('avgRating').get(function() {
   return Math.round(avg / this.comments.length)
 })
 ```
-
-## Wins
-* The stylish star-rating bar on the review forms.
-
-![review form](./client/src/images/star-rating.png)
-
-* Cohesive and professional styling across the whole site.
-* Eye-catching homepage with animations.
-* Learnt to use *react-select* to filter by continent, country, and city.
 * When the user adds a new venue and event at that venue, it will display on the map view as well.
-* Collaboration - this was the dream team and we got so much more done together than I could have done by myself.
-
-![footer](./client/src/images/footer.png)
-
-## Challenges
-* Learning to use group Git for the first time and handling merge conflicts.
+## Challenges Overcome
 * Handling user authentication to ensure that only the creator of an event or review would be allowed to edit or delete it.
 ```
 import jwt from 'jsonwebtoken'
@@ -279,14 +270,22 @@ export default async function secureRoute(req, res, next) {
   }
 }
 ```
+## Key Learnings
+* Learnt to use group Git and handle merge conflicts.
+* Learnt to use *react-select* to filter by continent, country, and city.
+* Cohesive and professional styling across the whole site is essential when creating a finished product.
+* Collaboration - this was the dream team and we got so much more done together than I could have done myself in a week.
+
+![footer](./client/src/images/footer.png)
 
 ## Unsolved Problems
 * The default values do not clear from the filter selectors on the Index pages.
 * Browser refreshes when the user selects the star rating on the review form.
 * Review form does not display error message for missing info.
 * Bug with venue review delete function.
+* Users can add events in other years.
 
-## Feature Wish List
+## Features Wish List
 * Users can edit their reviews.
 * Limit the top-rated events to only display top three.
 * Nav bar hamburger menu for a mobile phone screen.
@@ -295,3 +294,9 @@ export default async function secureRoute(req, res, next) {
 * Search events by month.
 
 ✨ ***PRs welcome!*** ✨
+
+## Credits
+
+All icons from [Material Design](https://material.io/resources/icons/).
+
+All fonts provided by [Google Fonts](https://fonts.google.com/).
