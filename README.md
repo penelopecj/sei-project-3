@@ -3,16 +3,16 @@
 A one-week group project for General Assembly’s Software Engineering Immersive course, built using React, Express, Mongo, and Node.
 
 ### Developed by:
-* Aislin Bamber - https://github.com/aislinb
+* Aislin Bamber - [GitHub](https://github.com/aislinb)
 
-* Hugo Kinahan -  https://github.com/hugokinahan
+* Hugo Kinahan -  [GitHub](https://github.com/hugokinahan)
 
-* Penny Jungreis - https://github.com/penelopecj
+* Penny Jungreis - [GitHub](https://github.com/penelopecj)
 
 ![homepage](./client/src/images/homepage.gif)
 
 ## Deployment
-I deployed this website using Heroku and it is available at [reimagined2020.herokuapp.com](https://reimagined2020.herokuapp.com/). The free servers on Heroku sleep when they are not it use, so please allow a minute or two for them to wake up! 😴
+I deployed this website using Heroku and it is available [_here_](https://reimagined2020.herokuapp.com/). The free servers on Heroku sleep when they are not it use, so please allow a minute or two for them to wake up! 😴
 
 Feel free to register your own account, or you can use mine `penny@email` and password `pass`.
 
