@@ -55,6 +55,7 @@ In an alternate reality, thousands of people attended events across the world in
   * Insomnia
   * Mapbox
   * Cloudinary
+  * Heroku
  
 ## Installation Instructions
 1. Clone repo code from GitHub onto your machine.
@@ -226,7 +227,7 @@ for (let i = 0; i < event.avgRating; i++) {
 * The Profile page and edit form.
 * The profile photo upload feature.
 * The login and registration forms.
-* The eye-catchin photo slider and text animations on the homepage.
+* The eye-catching photo slider and text animations on the homepage.
 * The highest-rated events (frontend).
 * The average rating calculator (backend).
 ```
