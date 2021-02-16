@@ -3,11 +3,11 @@
 A one-week group project for General Assembly’s Software Engineering Immersive course, built using React, Express, Mongo, and Node.
 
 ### Developed by:
+* Penny Jungreis - [GitHub](https://github.com/penelopecj)
+
 * Aislin Bamber - [GitHub](https://github.com/aislinb)
 
 * Hugo Kinahan -  [GitHub](https://github.com/hugokinahan)
-
-* Penny Jungreis - [GitHub](https://github.com/penelopecj)
 
 ![homepage](./client/src/images/homepage.gif)
 
